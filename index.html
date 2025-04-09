@@ -20,7 +20,7 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Início</a></li>
                     <li><a href="sobre-nos.html" class="nav-link">Sobre</a></li>
-                    <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
                     <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
@@ -100,7 +100,7 @@
         <section class="contact" id="contato">
             <div class="container">
                 <h2>Fale conosco</h2>
-                <p class="section-intro">Pronto para transformar seu espaço? Entre em contato conosco e vamos começar a planejar seu projeto.</p>
+                <p class="section-intro">Pronto para transformar seu espaço? <br>Entre em contato conosco e vamos começar a planejar seu projeto.</p>
                 
                 <div class="contact-grid">
                     <!-- Formulário (Coluna da Esquerda) -->
@@ -201,7 +201,7 @@
                             </div>
                             <div class="contact-detail-item">
                                 <i data-feather="phone"></i>
-                                <span>(27) 99999-9999</span>
+                                <span>(27) 98893-0746</span>
                             </div>
                             <div class="contact-detail-item">
                                 <i data-feather="mail"></i>
@@ -228,7 +228,7 @@
                             </a>
                         </div>
                         
-                        <a href="https://wa.me/5527999999999" class="whatsapp-direct" target="_blank">
+                        <a href="https://wa.me/552781971202071" class="whatsapp-direct" target="_blank">
                             <i data-feather="message-circle"></i>
                             Falar pelo WhatsApp
                         </a>
@@ -238,43 +238,52 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
                     <img src="src/img/logo.jpeg" alt="Studio Lar" class="footer-logo">
-                    <p>Transformando sonhos em projetos reais</p>
-                    <p>Cariacica-ES | Atendemos em todo o Brasil</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <p><i data-feather="phone"></i> (27) 99999-9999</p>
-                    <p><i data-feather="mail"></i> contato@studiolar.com.br</p>
-                </div>
-                <div class="footer-social">
-                    <h4>Redes Sociais</h4>
+                    <p>Studio Lar é um escritório de arquitetura que valoriza a importância de pensar os espaços para as pessoas, criando projetos que refletem personalidade e conforto.</p>
                     <div class="social-links">
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <i data-feather="instagram"></i>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i data-feather="linkedin"></i>
-                        </a>
+                        <a href="#" aria-label="Facebook"><i data-feather="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-feather="instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
                     </div>
+                </div>
+                <div class="footer-nav">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre-nos.html">Sobre</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+552799999999"><i data-feather="phone"></i> (27) 99999-9999</a></li>
+                        <li><a href="mailto:contato@studiolar.com"><i data-feather="mail"></i> contato@studiolar.com</a></li>
+                        <li><a href="#"><i data-feather="map-pin"></i> Cariacica, ES</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Studio Lar. Todos os direitos reservados.</p>
+                <p>&copy; 2024 Studio Lar. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
-        <i data-feather="arrow-up"></i>
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop">
+        <i data-feather="chevron-up"></i>
     </button>
+    
+    <!-- Floating WhatsApp button -->
+    <a href="https://wa.me/552799999999" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp">
+        <i data-feather="message-circle"></i>
+    </a>
 
     <script>
         feather.replace();
