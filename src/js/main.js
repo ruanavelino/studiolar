@@ -290,10 +290,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     <div class="popup-actions">
-                        <button class="cta-button">
+                        <a href="${createWhatsAppURL(createProjectWhatsAppMessage(project))}" class="cta-button" target="_blank">
                             <i data-feather="message-circle"></i>
                             Quero um projeto assim! Solicitar orçamento
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -359,15 +359,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fechar popup ao clicar no botão de fechar
         const closeButton = popup.querySelector('.close-popup');
         closeButton.addEventListener('click', closePopup);
-    
-        const ctaButton = popup.querySelector('.cta-button');
-        ctaButton.addEventListener('click', () => {
-            closePopup();
-            const contactForm = document.getElementById('leadForm');
-            contactForm.scrollIntoView({ behavior: 'smooth' });
-            const projectTypeSelect = document.getElementById('projectType');
-            if (projectTypeSelect) projectTypeSelect.focus();
-        });
     
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closePopup();
@@ -514,4 +505,77 @@ ${formData.message}`;
         section.classList.add('fade-in');
         observer.observe(section);
     });
+
+    // Função para obter variáveis CSS
+    function getCSSVariable(variableName) {
+        return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim().replace(/"/g, '');
+    }
+
+    // Função para criar URL do WhatsApp
+    function createWhatsAppURL(message = '') {
+        const number = getCSSVariable('--whatsapp-number');
+        const defaultMessage = getCSSVariable('--whatsapp-message');
+        const finalMessage = encodeURIComponent(message || defaultMessage);
+        return `https://wa.me/${number}?text=${finalMessage}`;
+    }
+
+    // Função para criar mensagem do projeto
+    function createProjectWhatsAppMessage(project) {
+        return `Olá! Gostaria de saber mais sobre o projeto "${project.title}". ${project.description}`;
+    }
+
+    // Atualizar manipulador de clique do botão CTA no popup
+    function setupWhatsAppButtons() {
+        // Botão flutuante do WhatsApp
+        const floatingWhatsApp = document.querySelector('.floating-whatsapp');
+        if (floatingWhatsApp) {
+            floatingWhatsApp.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(createWhatsAppURL(), '_blank');
+            });
+        }
+
+        // Botões de WhatsApp nos cards de projeto
+        document.querySelectorAll('.whatsapp-direct').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(createWhatsAppURL(), '_blank');
+            });
+        });
+    }
+
+    // ===== FAQ Accordion =====
+    function setupFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        if (faqItems.length === 0) return;
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Verificar se o item atual está ativo
+                const isActive = item.classList.contains('active');
+                
+                // Fechar todos os itens ativos
+                faqItems.forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Se o item clicado não estava ativo, abri-lo
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Abrir o primeiro item por padrão
+        if (faqItems.length > 0) {
+            faqItems[0].classList.add('active');
+        }
+    }
+
+    // Chamar setup quando o DOM estiver pronto
+    setupWhatsAppButtons();
+    setupFAQ();
 });
